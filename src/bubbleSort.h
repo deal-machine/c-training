@@ -3,19 +3,20 @@
 
 void bubbleSort(int quantity)
 {
-  float *v;
+  int *v;
   int i, y, x, aux;
 
-  /*
-    quantity * sizeof(float) => quantidade de bytes necessários 
-    malloc() => reservar quantidade de memória, retorna ponteiro   
-    (float *) => converte ponteiro para tipo de dado 
-  */
-  v = (float *)malloc(quantity * sizeof(float));
+  v = (int *)malloc(quantity * sizeof(int));
 
   for (i = 0; i < quantity; i++)
   {
-    v[i] = rand();
+    v[i] = rand() % 100;
+  }
+
+  printf("\nVetor Criado\n");
+  for (i = 0; i < quantity; i++)
+  {
+    printf(" %d -", v[i]);
   }
 
   for (x = 0; x < quantity; x++)
@@ -32,6 +33,10 @@ void bubbleSort(int quantity)
   }
 
   printf("\nBubbleSort\n");
+  for (i = 0; i < quantity; i++)
+  {
+    printf(" %d -", v[i]);
+  }
 
   //libera espaço em memoria
   free(v);
