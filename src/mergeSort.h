@@ -5,7 +5,7 @@
 void merge(int *v, int start, int mid, int end)
 {
   int *temp;
-  int size, partOne, partTwo, endOne, endTwo;
+  int size, partOne, partTwo, endOne = 0, endTwo = 0;
 
   size = end - start + 1;
   partOne = start;
@@ -44,12 +44,13 @@ void merge(int *v, int start, int mid, int end)
     v[z] = temp[y]; //return aux to vector
   }
 
-  for (int i = 0; i < size; i++)
+  printf("\nMerge\n");
+  for (int i = 1; i <= end; i++)
   {
-    printf("\n%d", v[i]);
+    printf(" %d - ", v[i]);
   }
 
-    free(temp);
+  free(temp);
 }
 
 void mergeSort(int *v, int start, int end)
@@ -63,11 +64,6 @@ void mergeSort(int *v, int start, int end)
     mergeSort(v, mid + 1, end);     //trata metade final
     merge(v, start, mid, end);      //combina os dados
   }
-
-  for (int i = 0; i < end; i++)
-  {
-    printf("\n%d", v[i]);
-  }
 }
 
 void mergeSortMain(int quantity)
@@ -79,17 +75,16 @@ void mergeSortMain(int quantity)
 
   for (int i = 0; i < quantity; i++)
   {
-    v[i] = rand();
+    v[i] = rand() % 10;
   }
 
+  printf("\nVetor criado\n");
   for (int i = 0; i < quantity; i++)
   {
     printf("\n%d", v[i]);
   }
 
   mergeSort(v, 0, quantity);
-
-  printf("\nMergeSort\n");
 
   free(v);
 }
