@@ -4,13 +4,21 @@
 void insertionSort(int quantity)
 {
   int i, x, y, aux;
-  float *v;
+  int *v;
 
-  v = (float *)malloc(quantity * sizeof(float));
+  v = (int *)malloc(quantity * sizeof(int));
 
   for (i = 0; i < quantity; i++)
   {
-    v[i] = rand();
+    v[i] = rand() % 100;
+  }
+  if (quantity <= 15)
+  {
+    printf("\nVetor Criado\n");
+    for (i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
   }
 
   for (x = 1; x < quantity; x++)
@@ -27,6 +35,12 @@ void insertionSort(int quantity)
   }
 
   printf("\nInsertionSort\n");
-
+  if (quantity <= 15)
+  {
+    for (i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
+  }
   free(v);
 }

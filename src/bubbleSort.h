@@ -12,11 +12,13 @@ void bubbleSort(int quantity)
   {
     v[i] = rand() % 100;
   }
-
-  printf("\nVetor Criado\n");
-  for (i = 0; i < quantity; i++)
+  if (quantity <= 15)
   {
-    printf(" %d -", v[i]);
+    printf("\nVetor Criado\n");
+    for (i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
   }
 
   for (x = 0; x < quantity; x++)
@@ -33,9 +35,12 @@ void bubbleSort(int quantity)
   }
 
   printf("\nBubbleSort\n");
-  for (i = 0; i < quantity; i++)
+  if (quantity <= 15)
   {
-    printf(" %d -", v[i]);
+    for (i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
   }
 
   //libera espaço em memoria

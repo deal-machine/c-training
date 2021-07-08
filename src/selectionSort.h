@@ -3,14 +3,22 @@
 
 void selectionSort(int quantity)
 {
-  float *v;
+  int *v;
   int x, y, aux, min;
 
-  v = (float *)malloc(quantity * sizeof(float));
+  v = (int *)malloc(quantity * sizeof(int));
 
   for (int i = 0; i < quantity; i++)
   {
-    v[i] = rand();
+    v[i] = rand() % 100;
+  }
+  if (quantity <= 15)
+  {
+    printf("\nVetor Criado\n");
+    for (int i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
   }
 
   for (x = 0; x < quantity - 1; x++)
@@ -32,6 +40,12 @@ void selectionSort(int quantity)
   }
 
   printf("\nSelectionSort\n");
-
+  if (quantity <= 15)
+  {
+    for (int i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
+  }
   free(v);
 }

@@ -48,6 +48,7 @@ int main(void)
     return 0;
     break;
   }
+
   clock_t end = clock();
   double time_spend = (double)(end - begin) * 100 / CLOCKS_PER_SEC;
 
