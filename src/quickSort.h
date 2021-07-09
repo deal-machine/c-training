@@ -16,18 +16,24 @@ void quickSortMain(int quantity)
     v[i] = rand() % 10;
   }
 
-  printf("\nVetor Criado\n");
-  for (i = 0; i < quantity; i++)
+  if (quantity <= 15)
   {
-    printf(" %d - ", v[i]);
+    printf("\nVetor Criado\n");
+    for (i = 0; i < quantity; i++)
+    {
+      printf(" %d -", v[i]);
+    }
   }
 
   quickSort(v, 0, quantity);
 
   printf("\nQuickSort\n");
-  for (i = 1; i <= quantity; i++)
+  if (quantity <= 15)
   {
-    printf(" %d - ", v[i]);
+    for (i = 1; i <= quantity; i++)
+    {
+      printf(" %d - ", v[i]);
+    }
   }
 
   free(v);
