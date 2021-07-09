@@ -12,6 +12,7 @@ void insertionSort(int quantity)
   {
     v[i] = rand() % 100;
   }
+
   if (quantity <= 15)
   {
     printf("\nVetor Criado\n");
@@ -42,5 +43,6 @@ void insertionSort(int quantity)
       printf(" %d -", v[i]);
     }
   }
+
   free(v);
 }

@@ -1,48 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int particiona(int *v, int inicio, int fim)
-{
-  int esquerda, direita, aux, pivo;
+int particiona(int *v, int inicio, int fim);
 
-  esquerda = inicio;
-  direita = fim;
-  pivo = v[inicio];
-
-  while (esquerda < direita)
-  {
-    while (v[esquerda] <= pivo)
-      esquerda++;
-    while (v[direita] > pivo)
-      direita--;
-    if (esquerda < direita)
-    {
-      aux = v[esquerda];
-      v[esquerda] = v[direita];
-      v[direita] = aux;
-    }
-  }
-  v[inicio] = v[direita];
-  v[direita] = pivo;
-
-  return direita;
-}
-
-void quickSort(int *v, int inicio, int fim)
-{
-  int pivo;
-  if (fim > inicio)
-  {
-    pivo = particiona(v, inicio, fim);
-    quickSort(v, inicio, pivo - 1);
-    quickSort(v, pivo + 1, fim);
-  }
-}
+void quickSort(int *v, int inicio, int fim);
 
 void quickSortMain(int quantity)
 {
-  int *v;
-  int i;
+  int *v, i;
 
   v = (int *)malloc(quantity * sizeof(int *));
 
@@ -51,7 +16,7 @@ void quickSortMain(int quantity)
     v[i] = rand() % 10;
   }
 
-  printf("\nVetor criado\n");
+  printf("\nVetor Criado\n");
   for (i = 0; i < quantity; i++)
   {
     printf(" %d - ", v[i]);
@@ -66,4 +31,43 @@ void quickSortMain(int quantity)
   }
 
   free(v);
+}
+
+void quickSort(int *v, int inicio, int fim)
+{
+  int pivo;
+
+  if (fim > inicio)
+  {
+    pivo = particiona(v, inicio, fim);
+
+    quickSort(v, inicio, pivo - 1);
+    quickSort(v, pivo + 1, fim);
+  }
+}
+
+int particiona(int *v, int inicio, int fim)
+{
+  int esq, dir, aux, pivo, i;
+  esq = inicio;
+  dir = fim;
+  pivo = v[inicio];
+
+  while (esq < dir)
+  {
+    while (v[esq] <= pivo)
+      esq++; // --->
+    while (v[dir] > pivo)
+      dir--; // <---
+    if (esq < dir)
+    {
+      aux = v[esq];
+      v[esq] = v[dir];
+      v[dir] = aux;
+    }
+  }
+  v[inicio] = v[dir];
+  v[dir] = pivo;
+
+  return dir;
 }

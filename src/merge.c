@@ -18,7 +18,7 @@ int main(void)
   printf("\nEscolha o metodo de ordenação: ");
   scanf("%d", &choose);
 
-  if (choose == 1 || choose == 2 || choose == 3 || choose == 4 || choose == 5)
+  if (choose >= 1 && choose <= 5)
   {
     printf("\nInforme a quantidade de valores: ");
     scanf("%d", &quantity);
