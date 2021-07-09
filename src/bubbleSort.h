@@ -4,7 +4,7 @@
 void bubbleSort(int quantity)
 {
   int *v;
-  int i, y, x, aux;
+  int i, x, y, aux;
 
   v = (int *)malloc(quantity * sizeof(int));
 
@@ -20,9 +20,9 @@ void bubbleSort(int quantity)
       printf(" %d -", v[i]);
     }
   }
-
   for (x = 0; x < quantity; x++)
   {
+
     for (y = x + 1; y < quantity; y++)
     {
       if (v[x] > v[y])

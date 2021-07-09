@@ -6,6 +6,7 @@
 #include "bubbleSort.h"
 #include "insertionSort.h"
 #include "selectionSort.h"
+#include "quickSort.h"
 
 int main(void)
 {
@@ -40,7 +41,7 @@ int main(void)
     mergeSortMain(quantity);
     break;
   case 5:
-    printf("\nQUICKSORT CHOOSED");
+    quickSortMain(quantity);
     break;
   default:
     printf("\nFINALIZANDO\n");
@@ -50,6 +51,7 @@ int main(void)
   }
 
   clock_t end = clock();
+
   double time_spend = (double)(end - begin) * 100 / CLOCKS_PER_SEC;
 
   printf("\n\nTime: %f\n\n", time_spend);

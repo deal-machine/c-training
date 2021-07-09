@@ -17,32 +17,42 @@ void merge(int *v, int start, int mid, int end)
   {
     for (int x = 0; x < size; x++)
     {
-      if (!endOne && !endTwo)
-      { //merge array ordened
-        if (v[partOne] < v[partTwo])
-          temp[x] = v[partOne++];
+      if (!endOne && !endTwo) //verifica se não chegou ao fim
+      {
+        if (v[partOne] < v[partTwo]) //compara os dois vetores
+        {
+          temp[x] = v[partOne];
+          partOne++;
+        }
         else
-          temp[x] = v[partTwo++];
-        //verify end of array
-        if (partOne > mid)
+        {
+          temp[x] = v[partTwo];
+          partTwo++;
+        }
+
+        if (partOne > mid) //verifica se finalizou a parte
           endOne = 1;
         if (partTwo > end)
           endTwo = 1;
       }
       else
-      { //merge rest of array
-        if (!endOne)
-          temp[x] = v[partOne++];
+      {
+        if (!endOne) //completa vetor temporario
+        {
+          temp[x] = v[partOne];
+          partOne++;
+        }
         else
-          temp[x] = v[partTwo++];
+        {
+          temp[x] = v[partTwo];
+          partTwo++;
+        }
       }
     }
   }
 
   for (int y = 0, z = start; y < size; y++, z++)
-  {
-    v[z] = temp[y]; //return aux to vector
-  }
+    v[z] = temp[y];
 
   printf("\nMerge\n");
   for (int i = 1; i <= end; i++)
@@ -69,17 +79,17 @@ void mergeSort(int *v, int start, int end)
 void mergeSortMain(int quantity)
 {
   int *v;
-  int start, mid, end;
+  int i;
 
   v = (int *)malloc(quantity * sizeof(int *));
 
-  for (int i = 0; i < quantity; i++)
+  for (i = 0; i < quantity; i++)
   {
     v[i] = rand() % 10;
   }
 
   printf("\nVetor criado\n");
-  for (int i = 0; i < quantity; i++)
+  for (i = 0; i < quantity; i++)
   {
     printf("\n%d", v[i]);
   }
