@@ -54,12 +54,6 @@ void merge(int *v, int start, int mid, int end)
   for (int y = 0, z = start; y < size; y++, z++)
     v[z] = temp[y];
 
-  printf("\nMerge\n");
-  for (int i = 1; i <= end; i++)
-  {
-    printf(" %d - ", v[i]);
-  }
-
   free(temp);
 }
 
@@ -91,10 +85,16 @@ void mergeSortMain(int quantity)
   printf("\nVetor criado\n");
   for (i = 0; i < quantity; i++)
   {
-    printf("\n%d", v[i]);
+    printf(" %d - ", v[i]);
   }
 
   mergeSort(v, 0, quantity);
+
+  printf("\nMergeSort\n");
+  for (int i = 1; i <= quantity; i++)
+  {
+    printf(" %d - ", v[i]);
+  }
 
   free(v);
 }
