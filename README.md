@@ -47,4 +47,7 @@
 <dt>
 Windows
 </dt>
-<dd>you can compile and run with <strong>gcc merge.c -o a.exe</strong></dd>
+<dd>
+Compile and run with <strong>gcc merge.c -o a.exe</strong>
+*you need to have the MinGW installed*
+</dd>
