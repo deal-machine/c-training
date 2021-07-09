@@ -13,7 +13,7 @@
 <h3>To compile and run :electric_plug:</h3>
 <dl>
 <dt>Linux</dt> 
-  <dd>you need to open <strong>src/</strong> and run the command to compile <strong>gcc merge.c</strong>, after that, you run can run with <strong>./a.out</strong></dd>
+  <dd>you need to open <strong>src/</strong> and run the command to compile <strong>gcc merge.c</strong>, after that, you can run with <strong>./a.out</strong></dd>
 <dt>
 Windows
 </dt>
