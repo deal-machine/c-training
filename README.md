@@ -43,8 +43,30 @@
 
 <h3>Data Structure</h3>
 <dl>
-  <dt>Lista Ligada</dt>
-  <dd></dd>
+  <dt>Ponteiros</dt>
+  <dd>É um tipo simples de referência, indica um endereço de memória, para qual ele aponta.
+  Em C são declarados com *, o uso pode ser de ponteiro para ponteiro **, aumentando operadores de indireção.
+  
+  </dd>
+</dl>
+<dl>
+  <dt>Lista</dt>
+  <dd>
+  <strong>Definição - </strong> sequêcia de elementos do mesmo tipo que possuem estrutura de nós, associados internamente. A complexidade é facultativa e não afeta o funcionamento.
+  <strong>Operações - </strong>
+  <ul>
+    <li>Criação</li>
+    <li>Insersão</li>
+    <li>Exclusão</li>
+    <li>Acesso a um elemento</li>
+    <li>Destruição de uma lista</li>
+  </ul>
+  <strong>Tipo de alocação em memória</strong>
+  <ul>
+    <li>Lista estática possui quantidade máxima(0 -> MAX-1) e o acesso é sequêncial. A desvantagem é alocação em memória mesmo sem o uso daquele espaço, pois é alicada em tempo de compilação.</li> 
+    <li>Lista dinâmica aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento utilizando ponteiros.</li> 
+  </ul>
+  </dd>
 </dl>
 <dl>
   <dt>Fila</dt>
@@ -54,6 +76,7 @@
   <dt>Pilha</dt>
   <dd></dd>
 </dl>
+
 <h3>To compile and run :electric_plug:</h3>
 <dl>
 <dt>Linux</dt> 
