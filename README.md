@@ -53,19 +53,12 @@
   <dt>Lista</dt>
   <dd>
   <strong>Definição - </strong> sequêcia de elementos do mesmo tipo que possuem estrutura de nós, associados internamente. A complexidade é facultativa e não afeta o funcionamento.
-  <strong>Operações - </strong>
-  <ul>
-    <li>Criação</li>
-    <li>Insersão</li>
-    <li>Exclusão</li>
-    <li>Acesso a um elemento</li>
-    <li>Destruição de uma lista</li>
-  </ul>
   <strong>Tipo de alocação em memória</strong>
   <ul>
     <li>Lista estática possui quantidade máxima(0 -> MAX-1) e o acesso é sequêncial. A desvantagem é alocação em memória mesmo sem o uso daquele espaço, pois é alicada em tempo de compilação.</li> 
     <li>Lista dinâmica aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento utilizando ponteiros.</li> 
   </ul>
+  
   </dd>
 </dl>
 <dl>
@@ -74,8 +67,28 @@
 </dl>
 <dl>
   <dt>Pilha</dt>
-  <dd></dd>
+  <dd>
+    <strong>Definição - </strong>é um tipo especial de lista. Os itens inseridos e excluidos são apenas o do topo(inicio) da pilha.
+    <strong>Alocação memória</strong> 
+    <ul>
+      <li>
+      Pilha estática é alocada com tamanho fixo em momento de compilação. O acesso é sequencial pois os elementos são consecultivos.
+      <li>
+      Pilha dinâmica aloca a memória em momento de execução, ou seja, acompanha insersão e remoção de elementos para definir seu tamanho. Para acessar um elemento é preciso conhecer seus antecessores na Pilha, mesmo estando em locais diferentes da memória, através de ponteiros. 
+      <li>
+      </li>
+    </ul>
+  </dd>
 </dl>
+
+<strong>Operações</strong>
+  <ul>
+    <li>Criação</li>
+    <li>Insersão</li>
+    <li>Exclusão</li>
+    <li>Acesso a um elemento</li>
+    <li>Destruição de uma lista</li>
+  </ul>
 
 <h3>To compile and run :electric_plug:</h3>
 <dl>
