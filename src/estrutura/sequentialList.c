@@ -174,3 +174,10 @@ int consulta_valor(Lista *li, int valor, struct aluno *alu)
 
   return 1;
 }
+
+int main(void)
+{
+
+  system("pause");
+  return 0;
+}
