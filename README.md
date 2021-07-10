@@ -3,6 +3,8 @@
 <hr>
 <h3>Implementation some exercises :bulb:</h3>
 
+<h3>Complexity</h3>
+
 <dl>
   <dt>BubbleSort</dt>
   <dd>
@@ -39,15 +41,27 @@
   </dd>
 </dl>
 
-
+<h3>Data Structure</h3>
+<dl>
+  <dt>Lista Ligada</dt>
+  <dd></dd>
+</dl>
+<dl>
+  <dt>Fila</dt>
+  <dd></dd>
+</dl>
+<dl>
+  <dt>Pilha</dt>
+  <dd></dd>
+</dl>
 <h3>To compile and run :electric_plug:</h3>
 <dl>
 <dt>Linux</dt> 
-  <dd>you need to open <strong>src/</strong> and run the command to compile <strong>gcc merge.c</strong>, after that, you can run with <strong>./a.out</strong></dd>
+  <dd>you need to open <strong>src/{folder}</strong> and run the command to compile <strong>gcc {file}.c</strong>, after that, you can run with <strong>./a.out</strong></dd>
 <dt>
 Windows
 </dt>
 <dd>
-Compile and run with <strong>gcc merge.c -o a.exe</strong>
+Compile and run with <strong>gcc {file}.c -o {file}.exe</strong>
 *you need to have the MinGW installed*
 </dd>
