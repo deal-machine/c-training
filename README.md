@@ -84,6 +84,7 @@
       <li>
       Pilha estática é alocada com tamanho fixo em momento de compilação. O acesso é sequencial pois os elementos são consecultivos.
       </li>
+      <li>
       Pilha dinâmica aloca a memória em momento de execução, ou seja, acompanha insersão e remoção de elementos para definir seu tamanho. Para acessar um elemento é preciso conhecer seus antecessores na Pilha, mesmo estando em locais diferentes da memória, através de ponteiros. 
       </li>
     </ul>
