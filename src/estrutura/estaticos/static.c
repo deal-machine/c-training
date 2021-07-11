@@ -12,6 +12,6 @@ int main(void)
   Pilha *pi;
   Fila *fi;
 
-    system("pause");
+  system("pause");
   return 0;
 }

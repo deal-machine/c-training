@@ -52,11 +52,11 @@
 <dl>
   <dt>Lista</dt>
   <dd>
-  Sequêcia de elementos do mesmo tipo que possuem estrutura de nós, associados internamente. A complexidade é facultativa e não afeta o funcionamento.
+  Sequêcia de elementos do mesmo tipo, possuem estrutura de nós, associados internamente. A complexidade é facultativa e não afeta o funcionamento.
 
   <ul>
-    <li>Lista estática possui quantidade máxima(0 -> MAX-1) e o acesso é sequêncial. A desvantagem é alocação em memória mesmo sem o uso daquele espaço, pois é alicada em tempo de compilação.</li> 
-    <li>Lista dinâmica aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento utilizando ponteiros.</li> 
+    <li>Lista estática possui quantidade máxima(0 -> MAX-1) e o acesso é sequêncial. A desvantagem é alocação em memória mesmo sem o uso daquele espaço, pois é alocada em tempo de compilação.</li> 
+    <li>Lista dinâmica aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção, ocupando e liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento sucessor na lista, utilizando ponteiros. Um ponteiro aponta para outro ponteiro (**) que aponta para o primeiro elemento da lista, e o ultimo aponta para NULL.</li> 
   </ul>
   
   </dd>

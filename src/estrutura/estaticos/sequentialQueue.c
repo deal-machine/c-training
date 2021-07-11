@@ -90,6 +90,7 @@ int consulta_fila(Fila *fi, struct pessoa *pe)
 
 int main(void)
 {
-  syste("pause");
+
+  system("pause");
   return 0;
 }
