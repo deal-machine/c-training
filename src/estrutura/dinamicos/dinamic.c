@@ -1,127 +1,157 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct pessoa
+typedef struct no
 {
-  int idade;
-  char nome[30];
-  float peso;
-};
+  int valor;
+  struct no *proximo;
+} No;
 
-typedef struct elemento *Lista;
-
-struct elemento
+typedef struct Lista
 {
-  struct pessoa dados;
-  struct elemento *prox;
-};
-typedef struct elemento Elem;
+  int tamanho;
+  No *inicio;
+} Lista;
 
-Lista *cria_lista()
+void insere_inicio(Lista *li, int valor)
 {
-  Lista *li = (Lista *)malloc(sizeof(Lista));
-  if (li != NULL)
-    *li = NULL;
+  if (li == NULL)
+    printf("NULL");
 
-  return li;
+  No *no = (No *)malloc(sizeof(No));
+
+  no->proximo = li->inicio;
+  no->valor = valor;
+  li->inicio = no;
+  li->tamanho++;
 }
 
-void libera_lista(Lista *li)
+void insere_fim(Lista *li, int valor)
 {
-  if (li != NULL)
+
+  No *aux, *novo = (No *)malloc(sizeof(No));
+
+  if (novo)
   {
-    Elem *no;
-    while ((*li) != NULL)
+    novo->valor = valor;
+    novo->proximo = NULL;
+
+    if (li->inicio == NULL)
+      li->inicio = novo;
+    else
     {
-      no = *li;
-      *li = (*li)->prox;
-      free(no);
+      aux = li->inicio;
+      while (aux->proximo != NULL)
+        aux = aux->proximo;
+
+      aux->proximo = novo;
+      li->tamanho++;
     }
-    free(li);
   }
-}
-
-int tamanho_lista(Lista *li)
-{
-  if (li == NULL)
-    return 0;
-
-  int cont = 0;
-  Elem *no = *li;
-  while (*li != NULL)
-  {
-    cont++;
-    no = no->prox;
-  }
-  return cont;
-}
-
-int lista_vazia(Lista *li)
-{
-  if (li == NULL || *li == NULL)
-    return 1;
-
-  return 0;
-}
-
-int insere_inicio(Lista *li, struct pessoa pe)
-{
-  if (li == NULL)
-    return 0;
-
-  Elem *no = (Elem *)malloc(sizeof(Elem));
-
-  if (no == NULL)
-    return 0;
-
-  no->dados = pe;
-  no->prox = (*li);
-  *li = no;
-
-  return 1;
-}
-
-int insere_fim(Lista *li, struct pessoa pe)
-{
-  if (li == NULL)
-    return 0;
-
-  Elem *no = (Elem *)malloc(sizeof(Elem));
-  no->dados = pe;
-  no->prox = NULL;
-
-  if ((*li) == NULL) //lista vazia
-    *li = no;
   else
-  {
-    Elem *aux = *li;
-    while (aux->prox != NULL)
-      aux = aux->prox;
-
-    aux->prox = no;
-  }
-
-  return 1;
+    printf("ERRO ALOCAÇÃO DE MEMÓRIA.\n");
 }
 
-int main(void)
+void insere_meio(Lista *li, int valor, int ref)
 {
-  Lista *li;
+  No *aux, *novo = (No *)malloc(sizeof(No));
 
-  li = cria_lista();
-  struct pessoa p = {26, "Douglas", 60.0};
-  struct pessoa p1 = {28, "Eduardo", 70.0};
+  if (novo)
+  {
+    novo->valor = valor;
+    if (li == NULL)
+    {
+      novo->proximo = NULL;
+      li->inicio = novo;
+    }
+    else
+    {
+      aux = li->inicio;
+      while (aux->valor != ref && aux->proximo != NULL)
+        aux = aux->proximo;
 
-  int x = insere_inicio(li, p);
-  // int y = insere_fim(li, p1);
+      novo->proximo = aux->proximo;
+      aux->proximo = novo;
+    }
+  }
+  else
+    printf("ERRO ALOCAÇÃO DE MEMÓRIA.\n");
+}
 
-  int estaVazia = lista_vazia(li);
-  int tamanho = tamanho_lista(li);
+void imprime_lista(Lista *li)
+{
+  No *inicio = li->inicio;
+  while (inicio != NULL)
+  {
+    printf("%d ", inicio->valor);
+    inicio = inicio->proximo;
+  }
+  printf("\nTamanho da lista: %d\n", li->tamanho);
+  printf("\n");
+}
 
-  printf("Tamanho lista: %d\n", tamanho);
-  printf("Lista vazia: %d\n", estaVazia);
+void remove_valor(Lista *li, int valor)
+{
+  No *aux = NULL;
+  No *inicio = li->inicio;
 
-  libera_lista(li);
+  if (li->inicio != NULL && li->inicio->valor == valor)
+  {
+    aux = li->inicio;
+    li->inicio = aux->proximo;
+    inicio->valor = valor;
+    li->tamanho--;
+  }
+  printf("Lista vazia.\n");
+}
+
+int main()
+{
+  Lista lista;
+  lista.inicio = NULL;
+  lista.tamanho = 0;
+  int escolha, valor, ref;
+
+  do
+  {
+    printf("\n***************\nInforme uma opção\n1-Inserir no começo\n2-Inserir por referencia\n3-Inserir no fim\n4-Imprimir Lista\n5-Sair\n***************\nEscolha: ");
+    scanf("%d", &escolha);
+
+    switch (escolha)
+    {
+
+    case 1:
+      printf("\nInforme um para inserir no começo: ");
+      scanf("%d", &valor);
+      insere_inicio(&lista, valor);
+      break;
+    case 2:
+      printf("\nInforme um valor para inserir por referência: ");
+      scanf("%d", &valor);
+      printf("Informe o valor da referencia: ");
+      scanf("%d", &ref);
+      insere_meio(&lista, valor, ref);
+      break;
+    case 3:
+      printf("\nInforme um valor: ");
+      scanf("%d", &valor);
+      insere_fim(&lista, valor);
+      break;
+    case 4:
+      printf("\nLista: ");
+      imprime_lista(&lista);
+      break;
+    case 5:
+      printf("\nSaindo...");
+      break;
+    default:
+      printf("\nEscolha Inválida.\n\n");
+      break;
+    }
+
+  } while (escolha != 5);
+
+  free(lista.inicio);
 
   system("pause");
   return 0;
