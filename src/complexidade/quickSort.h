@@ -7,14 +7,7 @@ void quickSort(int *v, int inicio, int fim);
 
 void quickSortMain(int quantity)
 {
-  int *v, i;
-
-  v = (int *)malloc(quantity * sizeof(int *));
-
-  for (i = 0; i < quantity; i++)
-  {
-    v[i] = rand() % 10;
-  }
+  int i;
 
   if (quantity <= 15)
   {

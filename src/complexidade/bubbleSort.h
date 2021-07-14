@@ -12,6 +12,7 @@ void bubbleSort(int quantity)
   {
     v[i] = rand() % 100;
   }
+
   if (quantity <= 15)
   {
     printf("\nVetor Criado\n");

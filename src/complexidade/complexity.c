@@ -8,11 +8,12 @@
 #include "selectionSort.h"
 #include "quickSort.h"
 
-int main(void)
+void main()
 {
 
   int choose;
   int quantity;
+  int *v;
 
   printf("\n1-BubbleSort; 2-InsertionSort; 3-SelectionSort; 4-MergeSort; 5-QuickSort;\nQualquer outro comando finalizará o sistema. ");
   printf("\nEscolha o metodo de ordenação: ");
@@ -22,6 +23,13 @@ int main(void)
   {
     printf("\nInforme a quantidade de valores: ");
     scanf("%d", &quantity);
+
+    v = (int *)malloc(quantity * sizeof(int *));
+
+    for (int i = 0; i < quantity; i++)
+    {
+      v[i] = rand() % 10;
+    }
   }
 
   clock_t begin = clock();
@@ -46,16 +54,16 @@ int main(void)
   default:
     printf("\nFINALIZANDO\n");
     system("pause");
-    return 0;
     break;
   }
 
   clock_t end = clock();
+
+  free(v);
 
   double time_spend = (double)(end - begin) * 100 / CLOCKS_PER_SEC;
 
   printf("\n\nTime: %f\n\n", time_spend);
 
   system("pause");
-  return 0;
 }

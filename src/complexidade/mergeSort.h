@@ -4,16 +4,16 @@
 
 void merge(int *v, int start, int mid, int end)
 {
-  int *temp;
+  int *aux;
   int size, partOne, partTwo, endOne = 0, endTwo = 0;
 
   size = end - start + 1;
   partOne = start;
   partTwo = mid + 1;
 
-  temp = (int *)malloc(size * sizeof(int));
+  aux = (int *)malloc(size * sizeof(int));
 
-  if (temp != NULL)
+  if (aux != NULL)
   {
     for (int x = 0; x < size; x++)
     {
@@ -21,12 +21,12 @@ void merge(int *v, int start, int mid, int end)
       {
         if (v[partOne] < v[partTwo]) //compara os dois vetores
         {
-          temp[x] = v[partOne];
+          aux[x] = v[partOne];
           partOne++;
         }
         else
         {
-          temp[x] = v[partTwo];
+          aux[x] = v[partTwo];
           partTwo++;
         }
 
@@ -37,14 +37,14 @@ void merge(int *v, int start, int mid, int end)
       }
       else
       {
-        if (!endOne) //completa vetor temporario
+        if (!endOne) //completa vetor auxorario
         {
-          temp[x] = v[partOne];
+          aux[x] = v[partOne];
           partOne++;
         }
         else
         {
-          temp[x] = v[partTwo];
+          aux[x] = v[partTwo];
           partTwo++;
         }
       }
@@ -52,9 +52,9 @@ void merge(int *v, int start, int mid, int end)
   }
 
   for (int y = 0, z = start; y < size; y++, z++)
-    v[z] = temp[y];
+    v[z] = aux[y];
 
-  free(temp);
+  free(aux);
 }
 
 void mergeSort(int *v, int start, int end)
@@ -72,8 +72,8 @@ void mergeSort(int *v, int start, int end)
 
 void mergeSortMain(int quantity)
 {
-  int *v;
   int i;
+  int *v;
 
   v = (int *)malloc(quantity * sizeof(int *));
 

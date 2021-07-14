@@ -16,7 +16,7 @@ Lista cria_lista()
   li = (Lista *)malloc(sizeof(struct lista)); //libera memoria para nova lista
   if (li != NULL)                             //verifica alocação
     li->alocados = 0;                         //li aponta quantidade de alocados
-  return li;                                  //retorna o primeiro dado da lista
+  return *li;                                 //retorna o primeiro dado da lista
 }
 
 void libera_lista(Lista *li)

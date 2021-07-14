@@ -8,6 +8,7 @@ struct elemento
   struct pessoa dados;
   struct elemento *prox;
 };
+
 typedef struct elemento Elem;
 
 Lista *cria_lista()
@@ -55,4 +56,21 @@ int lista_vazia(Lista *li)
     return 1;
 
   return 0;
+}
+
+int insere_inicio(Lista *li, struct pessoa pe)
+{
+  if (li == NULL)
+    return 0;
+
+  Elem *no = (Elem *)malloc(sizeof(Elem));
+
+  if (no == NULL)
+    return 0;
+
+  no->dados = pe;
+  no->prox = (*li);
+  *li = no;
+
+  return 1;
 }

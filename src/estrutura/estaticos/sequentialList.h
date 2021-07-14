@@ -1,4 +1,3 @@
-
 #define MAX 100
 
 struct aluno
