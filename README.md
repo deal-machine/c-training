@@ -97,7 +97,7 @@
     Tipo especial de árvore, possui vértices(nós) que podem possuir até duas "sub-árvores", uma na esquerda e outra na direita. Essas estruturas são chamadas de filhos(dos nós) e podem ser 0,1 ou 2.
     <strong>Alocação em memória </strong>pode ser estática(heap) ou dinâmica usando listas encadeadas.
     <strong>Árvore Binária de Busca</strong> possui uma propriedade em que todo elemento(no) filho maior que o pai se aloca a direita, e todo elemento menor que o elemento pai aloca-se a esquerda.
-    <strong>Operações e complexidade</strong> durante a isersão, remoção e consulta o pior caso será <strong>O(n) - árvore não balanceada </strong> e o caso médio <strong>O(log n)</strong>. Para corrigir esses casos de árvore não balanceada, existe a Árvore AVL que faz o balanço dos nós. 
+    <strong>Operações e complexidade</strong> durante a isersão, remoção e consulta o pior caso será <strong>O(n) - árvore não balanceada </strong> e o caso médio <strong>O(log n)</strong>. Para garantir esses casos de árvore não balanceada, existe a Árvore AVL que faz o balanço dos nós. 
     <strong>Percorrer a árvore</strong>
     <ul>
       <li>Pré-Ordem começa pela raiz, passa pelo filho da esquerda e depois o filho da direita. -raiz-esquerda-direita-</li>
