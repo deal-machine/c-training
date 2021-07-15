@@ -23,6 +23,12 @@ void remove_filhos(No *no);
 int arvore_vazia(Arvore *ar);
 int arvore_total(Arvore *ar);
 
+void imprime_pre(Arvore *ar);
+
+void imprime_ordem(Arvore *ar);
+
+void imprime_pos(Arvore *ar);
+
 int main()
 {
 
@@ -83,4 +89,45 @@ int arvore_total(Arvore *ar)
     return 0;
 
   return ar->total;
+}
+
+void imprime_pre(Arvore *ar)
+{
+  if (ar == NULL)
+    printf("\nÁrvore inexistente.\n");
+
+  // No *raiz = ar->raiz;
+
+  if (ar->raiz != NULL)
+  {
+    printf("%d\n", ar->raiz->valor);
+    imprime_pre(ar->raiz->esquerda);
+    imprime_pre(ar->raiz->direita);
+  }
+}
+
+void imprime_ordem(Arvore *ar)
+{
+  if (ar == NULL)
+    printf("\nÁrvore inexistente.\n");
+
+  if (ar->raiz != NULL)
+  {
+    imprime_ordem(ar->raiz->esquerda);
+    printf("%d\n", ar->raiz->valor);
+    imprime_ordem(ar->raiz->direita);
+  }
+}
+
+void imprime_pos(Arvore *ar)
+{
+  if (ar == NULL)
+    printf("\nÁrvore inexistente.\n");
+
+  if (ar->raiz != NULL)
+  {
+    imprime_pos(ar->raiz->esquerda);
+    imprime_pos(ar->raiz->direita);
+    printf("%d\n", ar->raiz->valor);
+  }
 }
