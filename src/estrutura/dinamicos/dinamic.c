@@ -20,45 +20,71 @@ void insere_inicio(Lista *li, int valor);
 void insere_ordenado(Lista *li, int valor);
 void insere_fim(Lista *li, int valor);
 void imprime_lista(Lista *li);
-void remove_valor(Lista *li, int valor);
+int remove_inicio(Lista *li);
+int remove_fim(Lista *li);
 
 int main()
 {
   Lista *li = cria_lista();
-  int escolha = 0, valor;
+  int escolha = 0, valor, remove = 0;
 
   do
   {
-    printf("\n******************************\nInforme uma opção\n1-Inserir no começo\n2-Inserir por referencia\n3-Inserir no fim\n4-Remove valor\n5-Imprimir Lista\nQualquer outra tecla para sair\n******************************\nEscolha: ");
+    printf("\n******************************\nInforme uma opção\n1-Inserir no começo\n2-Inserir ordenado\n3-Inserir no fim\n4-Remover valor\n5-Imprimir Lista\nQualquer outra tecla para sair\n******************************\nEscolha: ");
     scanf("%d", &escolha);
 
     switch (escolha)
     {
     case 1:
-      printf("\nInforme um para inserir no começo: ");
+      printf("\nInforme um valor para inserir no começo: ");
       scanf("%d", &valor);
       insere_inicio(li, valor);
       break;
     case 2:
-      printf("\nInforme um valor para inserir: ");
+      printf("\nInforme um valor para inserir ordenado: ");
       scanf("%d", &valor);
       insere_ordenado(li, valor);
       break;
     case 3:
-      printf("\nInforme um valor: ");
+      printf("\nInforme um valor para inserir no fim: ");
       scanf("%d", &valor);
       insere_fim(li, valor);
       break;
     case 4:
-      printf("\nInforme um valor para remover: ");
-      scanf("%d", &valor);
-      remove_valor(li, valor);
+
+      printf("\n1-Remover do inicio\n2-Remover por referência\n3-Remover do fim.\n4-Voltar\nEscolha: ");
+      scanf("%d", &remove);
+      switch (remove)
+      {
+      case 1:
+        if (remove_inicio(li))
+          printf("\nValor removido do inicio.\n");
+        else
+          printf("\nErro ao remover do inicio.\n");
+        break;
+      case 2:
+        printf("remover por referencia");
+        break;
+      case 3:
+        if (remove_fim(li))
+          printf("\nValor removido do fim.\n");
+        else
+          printf("\nErro ao remover do fim.\n");
+        break;
+      case 4:
+        printf("\nVoltando...\n");
+        break;
+      default:
+        break;
+      }
+
       break;
     case 5:
       printf("\nLista: ");
       imprime_lista(li);
       break;
     default:
+      escolha = 0;
       printf("\nSaindo...\n");
     }
   } while (escolha >= 1 && escolha <= 5);
@@ -178,20 +204,43 @@ void imprime_lista(Lista *li)
   printf("\n");
 }
 
-void remove_valor(Lista *li, int valor)
+int remove_inicio(Lista *li)
 {
-  No *inicio = li->inicio;
-  if (inicio == NULL)
-    printf("\nLista vazia.\n");
+  if (li == NULL || li->inicio == NULL)
+    return 0;
+
+  No *no = li->inicio;
+
+  li->inicio = no->proximo;
+
+  if (no->proximo == NULL)
+    no = NULL;
+
+  free(no);
+
+  li->tamanho--;
+
+  return 1;
+}
+
+int remove_fim(Lista *li)
+{
+  if (li == NULL || li->inicio == NULL)
+    return 0;
+
+  No *no = li->inicio;
+
+  while (no->proximo != NULL)
+    no = no->proximo;
+
+  if (no->anterior == NULL)
+    li->inicio = no->proximo;
   else
-  {
-    No *aux = inicio->proximo;
+    no->anterior->proximo = NULL;
 
-    while (inicio->valor != valor && aux != NULL)
-      aux = inicio->proximo;
+  free(no);
 
-    inicio->proximo = aux->proximo;
-    free(aux);
-    li->tamanho--;
-  }
+  li->tamanho--;
+
+  return 1;
 }
