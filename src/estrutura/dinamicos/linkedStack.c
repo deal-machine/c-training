@@ -1,24 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-typedef struct no
-{
-  int valor;
-  struct no *proximo;
-} No;
-
-typedef struct pilha
-{
-  int tamanho;
-  struct no *inicio;
-} Pilha;
-
-Pilha *cria_pilha();
-void limpa_pilha(Pilha *pi);
-
-int insere_pilha(Pilha *pi, int valor);
-int remove_pilha(Pilha *pi);
-void visualiza_pilha(Pilha *pi);
+#include "linkedStack.h"
 
 int main()
 {
@@ -67,7 +50,8 @@ int main()
 Pilha *cria_pilha()
 {
   Pilha *pi = (Pilha *)malloc(sizeof(Pilha));
-
+  pi->inicio = NULL;
+  pi->tamanho = 0;
   return pi;
 }
 
