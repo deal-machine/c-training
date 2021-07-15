@@ -56,7 +56,8 @@
 
   <ul>
     <li>Lista estática possui quantidade máxima(0 -> MAX-1) e o acesso é sequêncial. A desvantagem é alocação em memória mesmo sem o uso daquele espaço, pois é alocada em tempo de compilação.</li> 
-    <li>Lista dinâmica aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção, ocupando e liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento sucessor na lista, utilizando ponteiros. Um ponteiro aponta para outro ponteiro (**) que aponta para o primeiro elemento da lista, e o ultimo aponta para NULL.</li> 
+    <li>Lista dinâmica, aloca em tempo de execução, não precisa de tamanho máximo, trabalha com insersão e remoção, ocupando e liberando a memória. O acesso é encadeado, cada elemento aponta para outro elemento sucessor na lista, utilizando ponteiros. Um ponteiro aponta para outro ponteiro (**) que aponta para o primeiro elemento da lista, e o ultimo aponta para NULL.</li>
+    <li>A lista implementada aqui é duplamente encadeada, ou seja, aponta para o antecessor e para um sucessor. No primeiro nó o antecessor recebe NULL o mesmo para o ultimo nó onde o proximo aponta para NULL.</li> 
   </ul>
   
   </dd>
@@ -91,14 +92,21 @@
   </dd>
 </dl>
 <dl>
+  <dt>Árvore Binária</dt>
+  <dd>
+    Tipo especial de árvore, possui vértices(nós) que podem possuir até duas "sub-árvores", uma na esquerda e outra na direita. Essas estruturas são chamadas de filhos(dos nós) e podem ser 0,1 ou 2.
+    <strong>Alocação em memória </strong>pode ser estática(heap) ou dinâmica usando listas encadeadas.
+  </dd>
+</dl>
+<dl>
   <dt>Operações</dt>
 <dd>
     <ul>
-      <li>Criação</li>
-      <li>Insersão</li>
-      <li>Exclusão</li>
-      <li>Acesso a um elemento</li>
-      <li>Destruição de uma lista</li>
+      <li>Criação;</li>
+      <li>Insersão;</li>
+      <li>Exclusão;</li>
+      <li>Acesso a um elemento;</li>
+      <li>Destruição de uma lista/fila/pilha/árvore.</li>
     </ul>
 </dd>
 </dl>
