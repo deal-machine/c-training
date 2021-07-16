@@ -8,12 +8,18 @@ class No
 private:
   No *antes;
   No *depois;
+  No *no;
   int valor;
 
 public:
   No(No *antes, No *depois, int valor);
   No *cria_no();
   void libera_no(No *no);
+  No *getAntes() { return antes; }
+  No *getDepois() { return depois; }
+  No *getNo() { return no; }
+  No *setNo() { return (No *)malloc(sizeof(No)); }
+  int getValor() { return valor; }
 };
 
 No::No(No *antes, No *depois, int valor)
@@ -33,13 +39,15 @@ class Lista
 private:
   No *inicio;
   No *ultimo;
-  int tamanho;
 
 public:
+  int tamanho;
   Lista();
+
   No *getInicio() { return inicio; }
+  void setInicio(No *no) { inicio = no; }
   void libera_lista(Lista *li);
-  int insere_inicio(Lista li, int valor);
+  int insere_inicio(int valor);
   int insere_ordenado(Lista *li, int valor);
   int insere_fim(Lista *li, int valor);
   int remove_inicio(Lista *li);
@@ -63,18 +71,19 @@ void Lista::libera_lista(Lista *li)
   free(li);
 }
 
-int Lista::insere_inicio(Lista li, int valor)
+int Lista::insere_inicio(int valor)
 {
-  if (li == NULL)
-    return 0;
 
-  No novo = No(NULL, li.getInicio(), valor);
-  No inicio = li.getInicio();
-  if (inicio != NULL) //lista não vazia
-    li.getInicio()->anterior = novo;
+  No novo = No(NULL, this->getInicio(), valor);
+  novo.setNo();
 
-  li->inicio = novo;
-  li->tamanho++;
+  No *anterior = inicio->getAntes();
+
+  if (this->inicio != NULL)
+    anterior = novo.getNo();
+
+  setInicio(novo.getNo());
+  tamanho++;
 
   return 1;
 }
