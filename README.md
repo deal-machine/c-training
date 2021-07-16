@@ -5,6 +5,7 @@
 
 <br>
 
+<hr>
 <h3>Complexity - Complexidade</h3>
 
 <dl>
@@ -42,7 +43,12 @@
     Pior caso <strong> O(N^2)</strong> - caso o pivô seja o maior ou menor elemento.
   </dd>
 </dl>
+
+<hr>
 <br>
+
+
+<hr>
 <h3>Data Structure - Estrutura de Dados</h3>
 <dl>
   <dt>Ponteiros</dt>
@@ -120,8 +126,9 @@
     </ul>
 </dd>
 </dl>
-
+<hr>
 <br>
+<hr>
 <h3>Object-Oriented Programming - Programação Orientada Objetos </h3>
 <dl>
 <dt>Herança</dt>
@@ -145,8 +152,10 @@ Olhando pra linguagens como C++, C#, Java e Python, todas elas trabalham com her
 <dd>Criar uma idealização daquele objeto, ele pode apenas ser herdado mas não instanciado pois agora virou abstrato. Serve apenas como classe base(superclasse) da herança.
 Serve para definir implementações e ao menos um metodo precisa ser abstrato, podendo criar também mais metodos, diferenciando de uma <strong>Interface</strong> em que todos os métodos devem ser implementados(abstratos).</dd>
 </dl>
-
+<hr>
 <br>
+<br>
+<hr>
 <h3>To compile and run :electric_plug:</h3>
 <dl>
 <dt>Linux</dt> 
