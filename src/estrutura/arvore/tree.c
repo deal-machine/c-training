@@ -27,8 +27,9 @@ void imprime_pre(No *no);
 void imprime_ordem(No *no);
 void imprime_pos(No *no);
 void insere_valor(Arvore *ar, int valor);
-No *remove_valor(No *no);
-void remove_valor_arvore(Arvore *ar, int valor);
+No *remove_no(No *no);
+void remove_valor(Arvore *ar, int valor);
+int consulta_arvore(Arvore *ar, int valor);
 
 int main()
 {
@@ -37,7 +38,7 @@ int main()
 
   do
   {
-    printf("\n******************************\nTrabalhando com ÁRVORE\nInforme uma opção\n\n1-Inserir valor\n2-Remover valor\n3-Visualizar\nQualquer outra tecla para sair\n******************************\nEscolha: ");
+    printf("\n******************************\nTrabalhando com ÁRVORE\nInforme uma opção\n\n1-Inserir valor\n2-Remover valor\n3-Visualizar\n4-Buscar por valor\nQualquer outra tecla para sair\n******************************\nEscolha: ");
     scanf("%d", &escolha);
     switch (escolha)
     {
@@ -49,7 +50,7 @@ int main()
     case 2:
       printf("\nInforme um valor para remover: ");
       scanf("%d", &valor);
-      remove_valor_arvore(ar, valor);
+      remove_valor(ar, valor);
       break;
     case 3:
       printf("\nInforme um metodo de exibição\n1-Pré-Ordem\n2-Ordem\n3-Pós-Ordem\n4-Tamanho da árvore\nQualquer outra tecla para voltar\nEscolha: ");
@@ -78,11 +79,19 @@ int main()
         break;
       }
       break;
+    case 4:
+      printf("\nInforme um valor para buscar: ");
+      scanf("%d", &valor);
+      if (consulta_arvore(ar, valor))
+        printf("\nValor %d encontrado.\n", valor);
+      else
+        printf("\nValor %d não encontrado.\n", valor);
+      break;
     default:
       escolha = 0;
       printf("\nSaindo...\n");
     }
-  } while (escolha >= 1 && escolha <= 3);
+  } while (escolha >= 1 && escolha <= 4);
 
   limpa_arvore(ar);
 
@@ -146,6 +155,7 @@ int arvore_vazia(Arvore *ar)
 {
   if (ar == NULL || ar->raiz == NULL)
     return 1;
+
   return 0;
 }
 
@@ -226,7 +236,7 @@ void insere_valor(Arvore *ar, int valor)
   printf("\nElemento inserido com sucesso.\n");
 }
 
-No *remove_valor(No *no)
+No *remove_no(No *no)
 {
   No *aux, *sub;
 
@@ -253,13 +263,10 @@ No *remove_valor(No *no)
   return sub;
 }
 
-void remove_valor_arvore(Arvore *ar, int valor)
+void remove_valor(Arvore *ar, int valor)
 {
   if (arvore_vazia(ar))
-  {
-    printf("\nÁrvore inexistente ou vazia.\n");
     return;
-  }
 
   No *no = ar->raiz;
   No *anterior = NULL;
@@ -268,13 +275,13 @@ void remove_valor_arvore(Arvore *ar, int valor)
     if (valor == no->valor)
     {
       if (no == ar->raiz)
-        ar->raiz = remove_valor(no);
+        ar->raiz = remove_no(no);
       else
       {
         if (anterior->direita == no)
-          anterior->direita = remove_valor(no);
+          anterior->direita = remove_no(no);
         else
-          anterior->esquerda = remove_valor(no);
+          anterior->esquerda = remove_no(no);
       }
 
       ar->total--;
@@ -287,4 +294,22 @@ void remove_valor_arvore(Arvore *ar, int valor)
     else
       no = no->esquerda;
   }
+}
+
+int consulta_arvore(Arvore *ar, int valor)
+{
+  if (arvore_vazia(ar))
+    return 0;
+
+  No *no = ar->raiz;
+  while (no != NULL)
+  {
+    if (no->valor == valor)
+      return 1;
+    if (no->valor > valor)
+      no = no->esquerda;
+    else
+      no = no->direita;
+  }
+  return 0;
 }
