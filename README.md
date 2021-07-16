@@ -1,9 +1,11 @@
 # Data structure in C :white_check_mark:
 
 <hr>
-<h3>Implementation some exercises :bulb:</h3>
+<h3>:bulb: Implementation some exercises :bulb:</h3>
 
-<h3>Complexity</h3>
+<br>
+
+<h3>Complexity - Complexidade</h3>
 
 <dl>
   <dt>BubbleSort</dt>
@@ -41,7 +43,7 @@
   </dd>
 </dl>
 <br>
-<h3>Data Structure</h3>
+<h3>Data Structure - Estrutura de Dados</h3>
 <dl>
   <dt>Ponteiros</dt>
   <dd>É um tipo simples de referência, indica um endereço de memória, para qual ele aponta.
@@ -110,27 +112,27 @@
   <dt>Operações</dt>
 <dd>
     <ul>
-      <li>Criação;</li>
-      <li>Insersão;</li>
-      <li>Exclusão;</li>
-      <li>Acesso a um elemento;</li>
-      <li>Destruição de uma lista/fila/pilha/árvore.</li>
+      <li>Criação</li>
+      <li>Insersão</li>
+      <li>Exclusão de um elemento</li>
+      <li>Acesso a um elemento</li>
+      <li>Destruição de uma estrutura</li>
     </ul>
 </dd>
 </dl>
 
 <br>
-<h3>POO </h3>
+<h3>Object-Oriented Programming - Programação Orientada Objetos </h3>
 <dl>
 <dt>Herança</dt>
-<dd>É receber caracteristicas de um outro objeto. A criação de objeto em função de outro. Dessa forma ambos, classe base e classe derivada possuem um forte acoplamento.
+<dd>É receber caracteristicas de um outro objeto. Estendendo seus atributos e métodos, assumindo a mesma forma. Assim, classe base e classe derivada possuem um forte acoplamento.
 <strong>Composição é uma possível solução em determinados casos, pois ela preenche uma classe sem que a mesma não dependa totalmente da sua existência.</strong>
 Olhando pra linguagens como C++, C#, Java e Python, todas elas trabalham com herança. C++, C# e Java possuem sintaxes parecidas, Python é bem diferente mas segue o mesmo conceito.
 </dd>
 </dl>
 <dl>
 <dt>Encapsulamento</dt>
-<dd>É a forma como se isolam os dados dentro de uma classe com o atributo <strong>private</strong>, a única forma de acesso é através de métodos encapsulados, que flexibilizam o tratamento. O que precisa-se conhecer externo a classe é declarado como <strong>public</strong>.
+<dd>É a forma como se isolam os dados dentro de uma classe com o atributo <strong>private</strong>, a única forma de acesso é através de métodos encapsulados, que flexibilizam o tratamento. O que precisa-se conhecer, externo a classe, é declarado como <strong>public</strong>.
 </dd>
 </dl>
 <dl>
@@ -141,7 +143,7 @@ Olhando pra linguagens como C++, C#, Java e Python, todas elas trabalham com her
 <dl>
 <dt>Abstração</dt>
 <dd>Criar uma idealização daquele objeto, ele pode apenas ser herdado mas não instanciado pois agora virou abstrato. Serve apenas como classe base(superclasse) da herança.
-Serve para definir implementações e ao menos um metodo precisa ser abstrato, podendo criar também mais metodos, diferenciando de uma <strong>Inteface</strong> em que todos os métodos devem ser implementados(abstratos).</dd>
+Serve para definir implementações e ao menos um metodo precisa ser abstrato, podendo criar também mais metodos, diferenciando de uma <strong>Interface</strong> em que todos os métodos devem ser implementados(abstratos).</dd>
 </dl>
 
 <br>
