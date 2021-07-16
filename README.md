@@ -3,10 +3,9 @@
 <hr>
 <h3 align="center">:bulb: Implementation some exercises :bulb:</h3>
 
-<br>
 
 <hr>
-<h3>Complexity - Complexidade</h3>
+<h3 align="center">Complexity - Complexidade</h3>
 
 <dl>
   <dt>BubbleSort</dt>
@@ -44,12 +43,11 @@
   </dd>
 </dl>
 
-<hr>
 <br>
 
 
 <hr>
-<h3>Data Structure - Estrutura de Dados</h3>
+<h3 align="center">Data Structure - Estrutura de Dados</h3>
 <dl>
   <dt>Ponteiros</dt>
   <dd>É um tipo simples de referência, indica um endereço de memória, para qual ele aponta.
@@ -126,10 +124,10 @@
     </ul>
 </dd>
 </dl>
-<hr>
+
 <br>
 <hr>
-<h3>Object-Oriented Programming - Programação Orientada Objetos </h3>
+<h3 align="center">Object-Oriented Programming - Programação Orientada Objetos </h3>
 <dl>
 <dt>Herança</dt>
 <dd>É receber caracteristicas de um outro objeto. Estendendo seus atributos e métodos, assumindo a mesma forma. Assim, classe base e classe derivada possuem um forte acoplamento.
@@ -152,11 +150,10 @@ Olhando pra linguagens como C++, C#, Java e Python, todas elas trabalham com her
 <dd>Criar uma idealização daquele objeto, ele pode apenas ser herdado mas não instanciado pois agora virou abstrato. Serve apenas como classe base(superclasse) da herança.
 Serve para definir implementações e ao menos um metodo precisa ser abstrato, podendo criar também mais metodos, diferenciando de uma <strong>Interface</strong> em que todos os métodos devem ser implementados(abstratos).</dd>
 </dl>
-<hr>
 <br>
 <br>
 <hr>
-<h3>To compile and run :electric_plug:</h3>
+<h3 align="center">To compile and run :electric_plug:</h3>
 <dl>
 <dt>Linux</dt> 
   <dd>you need to open <strong>src/{folder}</strong> and run the command to compile <strong>gcc {file}.c</strong>, after that, you can run with <strong>./a.out</strong></dd>
