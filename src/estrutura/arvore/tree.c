@@ -6,10 +6,11 @@
 int main()
 {
   Arvore *ar = cria_arvore();
-  int escolha = 0, valor, exibicao = 0;
+  int escolha, valor, exibicao = 0;
 
   do
   {
+    escolha = 0;
     printf("\n******************************\nTrabalhando com ÁRVORE\nInforme uma opção\n\n1-Inserir valor\n2-Remover valor\n3-Visualizar\n4-Buscar por valor\nQualquer outra tecla para sair\n******************************\nEscolha: ");
     scanf("%d", &escolha);
     switch (escolha)
@@ -75,8 +76,8 @@ Arvore *cria_arvore()
 {
   Arvore *ar = (Arvore *)malloc(sizeof(Arvore));
 
+  // ar->altura = 0;
   ar->total = 0;
-  ar->altura = 0;
   ar->raiz = NULL;
 
   return ar;
@@ -85,6 +86,7 @@ Arvore *cria_arvore()
 No *cria_no(int valor)
 {
   No *novo = (No *)malloc(sizeof(No));
+
   novo->valor = valor;
   novo->direita = NULL;
   novo->esquerda = NULL;
@@ -112,7 +114,10 @@ void limpa_arvore(Arvore *ar)
 void limpa_filhos(No *no)
 {
   if (no == NULL)
-    printf("\nNo inexistente.\n");
+  {
+    free(no);
+    return;
+  }
 
   limpa_filhos(no->esquerda);
   limpa_filhos(no->direita);

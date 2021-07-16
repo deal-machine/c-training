@@ -2,15 +2,15 @@
 typedef struct no
 {
   int valor;
-  int alturaEsquerda;
-  int alturaDireita;
+  // int alturaEsquerda;
+  // int alturaDireita;
   struct no *esquerda;
   struct no *direita;
 } No;
 
 typedef struct arvore
 {
-  int altura;
+  // int altura;
   int total;
   struct no *raiz;
 } Arvore;
