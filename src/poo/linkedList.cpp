@@ -10,9 +10,10 @@ private:
   No *depois;
   No *no;
   int valor;
-
+  //
 public:
   No(No *antes, No *depois, int valor);
+  ~No();
   No *cria_no();
   void libera_no(No *no);
   No *getAntes() { return antes; }
@@ -28,6 +29,7 @@ No::No(No *antes, No *depois, int valor)
   depois = depois;
   valor = valor;
 }
+
 No *cria_no()
 {
   No *no = (No *)malloc(sizeof(No));
@@ -43,10 +45,11 @@ private:
 public:
   int tamanho;
   Lista();
-
+  ~Lista();
   No *getInicio() { return inicio; }
   void setInicio(No *no) { inicio = no; }
-  void libera_lista(Lista *li);
+  void libera_lista(Lista li);
+
   int insere_inicio(int valor);
   int insere_ordenado(Lista *li, int valor);
   int insere_fim(Lista *li, int valor);
@@ -66,9 +69,9 @@ Lista::Lista()
   tamanho = 0;
 };
 
-void Lista::libera_lista(Lista *li)
+void Lista::libera_lista(Lista li)
 {
-  free(li);
+  li.~Lista();
 }
 
 int Lista::insere_inicio(int valor)
