@@ -1,7 +1,7 @@
 # Data structure in C :white_check_mark:
 
 <hr>
-<h3 style="align:center;text-align:center;">:bulb: Implementation some exercises :bulb:</h3>
+<h3 align="center">:bulb: Implementation some exercises :bulb:</h3>
 
 <br>
 
