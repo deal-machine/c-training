@@ -1,40 +1,40 @@
-# Data structure in C :white_check_mark:
+# Technical Training :shipit: :white_check_mark:
 
 <hr>
-<h3 align="center">:bulb: Implementation some exercises :bulb:</h3>
+<h3 align="right">Description of some exercises :bulb:</h3>
 
 
 <hr>
 <h3 align="center">Complexity - Complexidade</h3>
 
 <dl>
-  <dt>BubbleSort</dt>
+  <dt>BubbleSort :link:</dt>
   <dd>
     Compara os elementos sequencialmente, e troca de lugar se não estiverem ordenados.
     Melhor caso <strong>O(N)</strong> - para todos os elementos já ordenados.
     Pior caso <strong>O(N^2)</strong> - não recomendado para vetores grandes.
   </dd>
 
-  <dt>InsertionSort</dt>
+  <dt>InsertionSort :link:</dt>
   <dd>
     Compara o elemento e insere em seu devido lugar.
     É capaz de ordenar dados em tempo real, no momento em que são inseridos.
     Melhor caso <strong>O(N)</strong> - vetor já ordenado.
     Pior caso <strong>O(N^2)</strong> - perde desempenho em grande quantidade de dados desordenados.
   </dd>
-  <dt>SelectionSort</dt>
+  <dt>SelectionSort :link:</dt>
   <dd>
     Procura em todas as posições o menor valor e ordena dessa forma.
     Melhor caso <strong>O(N^2)</strong>.
     Pior Caso<strong>O(N^2)</strong>.
   </dd>
-  <dt>MergeSort</dt>
+  <dt>MergeSort :link:</dt>
   <dd>
     Divide recursivamente o conjunto pela metade, e ordena os subconjuntos.
     Melhor caso <strong>O(N log N)</strong>.
     Pior Caso<strong>O(N log N)</strong> por ser recursivo e criar um vetor auxiliar na ordenação.
   </dd>
-  <dt>QuickSort</dt>
+  <dt>QuickSort :link:</dt>
   <dd>
     Possui a ideia em dividir o vetor e selecionar um elemento como pivô, usa recursividade para ordenar valores.
     Melhor caso <strong>O(N log N)</strong> - seleciona sempre o meio para dividir, as partições tem o mesmo tamanho.
@@ -49,7 +49,7 @@
 <hr>
 <h3 align="center">Data Structure - Estrutura de Dados</h3>
 <dl>
-  <dt>Ponteiros</dt>
+  <dt>Ponteiros <strong>*</strong></dt>
   <dd>É um tipo simples de referência, indica um endereço de memória, para qual ele aponta.
   Em C são declarados com *, o uso pode ser de ponteiro para ponteiro **, aumentando operadores de indireção.
   
@@ -115,13 +115,11 @@
 <dl>
   <dt>Operações</dt>
 <dd>
-    <ul>
-      <li>Criação</li>
-      <li>Insersão</li>
-      <li>Exclusão de um elemento</li>
-      <li>Acesso a um elemento</li>
-      <li>Destruição de uma estrutura</li>
-    </ul>
+      :heavy_check_mark: Criação
+      :heavy_plus_sign: Insersão
+      :heavy_multiplication_x: Exclusão de um elemento
+      :heavy_minus_sign: Acesso a um elemento
+      :x: Destruição de uma estrutura
 </dd>
 </dl>
 
