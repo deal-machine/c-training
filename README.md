@@ -1,7 +1,6 @@
-# Technical Training :shipit: :white_check_mark:
-
+# Technical Training :bulb:
 <hr>
-<h3 align="right">Description of some exercises :bulb:</h3>
+<h3 align="right">Description of some exercises :white_check_mark: </h3>
 
 
 <hr>
