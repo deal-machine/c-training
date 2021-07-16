@@ -18,18 +18,20 @@ typedef struct arvore
 } Arvore;
 
 Arvore *cria_arvore();
-void remove_arvore(Arvore *ar);
-void remove_filhos(No *no);
+No *cria_no(int valor);
+void limpa_arvore(Arvore *ar);
+void limpa_filhos(No *no);
 int arvore_vazia(Arvore *ar);
 int arvore_total(Arvore *ar);
 void imprime_pre(No *no);
 void imprime_ordem(No *no);
 void imprime_pos(No *no);
-int insere(Arvore *ar, int valor);
+void insere_valor(Arvore *ar, int valor);
+No *remove_valor(No *no);
+void remove_valor_arvore(Arvore *ar, int valor);
 
 int main()
 {
-
   Arvore *ar = cria_arvore();
   int escolha = 0, valor, exibicao = 0;
 
@@ -42,10 +44,12 @@ int main()
     case 1:
       printf("\nInforme um valor para inserir: ");
       scanf("%d", &valor);
-      insere(ar, valor);
+      insere_valor(ar, valor);
       break;
     case 2:
-      printf("\nValor não excluido.\n");
+      printf("\nInforme um valor para remover: ");
+      scanf("%d", &valor);
+      remove_valor_arvore(ar, valor);
       break;
     case 3:
       printf("\nInforme um metodo de exibição\n1-Pré-Ordem\n2-Ordem\n3-Pós-Ordem\n4-Tamanho da árvore\nQualquer outra tecla para voltar\nEscolha: ");
@@ -77,11 +81,10 @@ int main()
     default:
       escolha = 0;
       printf("\nSaindo...\n");
-      break;
     }
   } while (escolha >= 1 && escolha <= 3);
 
-  remove_arvore(ar);
+  limpa_arvore(ar);
 
   system("pause");
   return 0;
@@ -98,7 +101,17 @@ Arvore *cria_arvore()
   return ar;
 }
 
-void remove_arvore(Arvore *ar)
+No *cria_no(int valor)
+{
+  No *novo = (No *)malloc(sizeof(No));
+  novo->valor = valor;
+  novo->direita = NULL;
+  novo->esquerda = NULL;
+
+  return novo;
+}
+
+void limpa_arvore(Arvore *ar)
 {
   if (ar == NULL || ar->raiz == NULL)
   {
@@ -108,20 +121,20 @@ void remove_arvore(Arvore *ar)
 
   No *no = ar->raiz;
 
-  remove_filhos(no);
+  limpa_filhos(no);
 
   free(ar);
 
   printf("\nÁrvore removida com sucesso.\n");
 }
 
-void remove_filhos(No *no)
+void limpa_filhos(No *no)
 {
   if (no == NULL)
     printf("\nNo inexistente.\n");
 
-  remove_filhos(no->esquerda);
-  remove_filhos(no->direita);
+  limpa_filhos(no->esquerda);
+  limpa_filhos(no->direita);
 
   free(no);
   no = NULL;
@@ -174,21 +187,16 @@ void imprime_pos(No *no)
   }
 }
 
-int insere(Arvore *ar, int valor)
+void insere_valor(Arvore *ar, int valor)
 {
   if (ar == NULL)
   {
     printf("\nÁrvore inexistente.\n");
-    return 0;
+    return;
   }
 
-  No *novo = (No *)malloc(sizeof(No));
-  novo->valor = valor;
-  novo->direita = NULL;
-  novo->esquerda = NULL;
-
   if (ar->raiz == NULL)
-    ar->raiz = novo;
+    ar->raiz = cria_no(valor);
   else
   {
     No *no = ar->raiz;
@@ -198,24 +206,85 @@ int insere(Arvore *ar, int valor)
       anterior = no;
       if (valor == no->valor)
       {
-        free(novo);
         printf("\nValor já existe.\n");
-        return 0;
+        return;
       }
       if (valor > no->valor)
         no = no->direita;
       else
         no = no->esquerda;
     }
+
     if (valor > anterior->valor)
-      anterior->direita = novo;
+      anterior->direita = cria_no(valor);
     else
-      anterior->esquerda = novo;
+      anterior->esquerda = cria_no(valor);
   }
 
   ar->total++;
-  ar->altura++;
 
   printf("\nElemento inserido com sucesso.\n");
-  return 1;
+}
+
+No *remove_valor(No *no)
+{
+  No *aux, *sub;
+
+  if (no->esquerda == NULL)
+  {
+    sub = no->direita;
+    free(no);
+    return sub;
+  }
+  aux = no;
+  sub = no->esquerda;
+  while (sub->direita != NULL)
+  {
+    aux = sub;
+    sub = sub->direita;
+  }
+  if (aux != no)
+  {
+    aux->direita = sub->esquerda;
+    sub->esquerda = no->esquerda;
+  }
+  sub->direita = no->direita;
+  free(no);
+  return sub;
+}
+
+void remove_valor_arvore(Arvore *ar, int valor)
+{
+  if (arvore_vazia(ar))
+  {
+    printf("\nÁrvore inexistente ou vazia.\n");
+    return;
+  }
+
+  No *no = ar->raiz;
+  No *anterior = NULL;
+  while (no != NULL)
+  {
+    if (valor == no->valor)
+    {
+      if (no == ar->raiz)
+        ar->raiz = remove_valor(no);
+      else
+      {
+        if (anterior->direita == no)
+          anterior->direita = remove_valor(no);
+        else
+          anterior->esquerda = remove_valor(no);
+      }
+
+      ar->total--;
+      printf("\nValor removido. \n");
+      return;
+    }
+    anterior = no;
+    if (valor > no->valor)
+      no = no->direita;
+    else
+      no = no->esquerda;
+  }
 }
