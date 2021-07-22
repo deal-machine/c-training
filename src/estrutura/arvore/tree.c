@@ -61,7 +61,6 @@ int main()
         printf("\nValor %d não encontrado.\n", valor);
       break;
     default:
-      escolha = 0;
       printf("\nSaindo...\n");
     }
   } while (escolha >= 1 && escolha <= 4);

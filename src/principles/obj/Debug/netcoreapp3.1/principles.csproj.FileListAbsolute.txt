@@ -1,0 +1,13 @@
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles.deps.json
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles.runtimeconfig.json
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles.runtimeconfig.dev.json
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles.dll
+/home/deal/C/src/principles/bin/Debug/netcoreapp3.1/principles.pdb
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.csprojAssemblyReference.cache
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.AssemblyInfoInputs.cache
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.AssemblyInfo.cs
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.csproj.CoreCompileInputs.cache
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.dll
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.pdb
+/home/deal/C/src/principles/obj/Debug/netcoreapp3.1/principles.genruntimeconfig.cache
