@@ -2,11 +2,12 @@
 
 namespace principles
 {
-    class Program
+  class Program
+  {
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
+      int valor = 10;
+      Console.WriteLine("Hello World! " + valor);
     }
+  }
 }
